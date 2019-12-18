@@ -287,6 +287,135 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.slider, function (sprite, otherS
     false
     )
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.slider3, function (sprite, otherSprite) {
+    jared.vy = -150
+    // jumping animation
+    animation.runImageAnimation(
+    jared,
+    [img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f f . . f f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . f . . f f . f . . . . . 
+. . . f f . . f f . . f f . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . f f . . . . f f . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . f . . . f f f f . . f . . . 
+. . . f f f . f f . f f f . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . f f . . . . f f . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . f . f f . f . f . f . . . 
+. . . f . f . f . . f . f . . . 
+. . . f . . f . . f . . f . . . 
+. . . . f . . f f . f f . . . . 
+. . . . . f f f f f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f f . . f f . . . . . 
+. . . f f f . . . . f f . . . . 
+. . . . . . . . . . . f . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . f . . . f f f f . . f . . . 
+. . . f f f . f f . f f f . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . f . . . . . . f . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . f . . f f . f . . . . . 
+. . . f f . . f f . . f f . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . f f . . . . f f . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f f . . f f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+`],
+    175,
+    false
+    )
+})
 // hitting ground
 scene.onHitTile(SpriteKind.Player, 2, function (sprite) {
     game.over(false)
@@ -955,10 +1084,11 @@ for (let value2 of scene.getTilesByType(4)) {
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 `, SpriteKind.slider3)
-    value2.place(slider2)
+    value2.place(slider3)
 }
 slider.ax = 50
 slider2.ax = 50
+slider3.ax = 50
 forever(function () {
     if (slider.isHittingTile(CollisionDirection.Left)) {
         slider.ax = 50
