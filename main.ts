@@ -3,6 +3,7 @@ namespace SpriteKind {
     export const slider = SpriteKind.create()
     export const slider2 = SpriteKind.create()
     export const slider3 = SpriteKind.create()
+    export const booster = SpriteKind.create()
 }
 namespace myTiles {
     //% blockIdentity=images._tile
@@ -25,9 +26,143 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `
 }
+// level 3 teleporter brown
 scene.onHitTile(SpriteKind.Player, 11, function (sprite) {
+    jared.setPosition(950, 980)
+})
+// level2 light purple
+scene.onHitTile(SpriteKind.Player, 14, function (sprite) {
     game.splash("level 2")
     jared.setPosition(570, 980)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.booster, function (sprite, otherSprite) {
+    jared.vy = -300
+    // jumping animation
+    animation.runImageAnimation(
+    jared,
+    [img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f f . . f f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . f . . f f . f . . . . . 
+. . . f f . . f f . . f f . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . f f . . . . f f . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . f . . . f f f f . . f . . . 
+. . . f f f . f f . f f f . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . f f . . . . f f . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . f . f f . f . f . f . . . 
+. . . f . f . f . . f . f . . . 
+. . . f . . f . . f . . f . . . 
+. . . . f . . f f . f f . . . . 
+. . . . . f f f f f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f f . . f f . . . . . 
+. . . f f f . . . . f f . . . . 
+. . . . . . . . . . . f . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . f . . . f f f f . . f . . . 
+. . . f f f . f f . f f f . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . f . . . . . . f . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . f . . f f . f . . . . . 
+. . . f f . . f f . . f f . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . f f . . . . f f . . . . 
+. . . . . . . . . . . . . . . . 
+`,img`
+. . . . . . f f f f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f f . f . f . . . . . 
+. . . . . f . f . . f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f . f f . f . . . . . 
+. . . . . f f . . f f . . . . . 
+. . . . . . f . . f . . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+. . . . . f . . . . f . . . . . 
+`],
+    175,
+    false
+    )
 })
 scene.onHitTile(SpriteKind.Player, 8, function (sprite) {
     jared.vy = -150
@@ -418,7 +553,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.slider3, function (sprite, other
 })
 // hitting ground
 scene.onHitTile(SpriteKind.Player, 2, function (sprite) {
-    game.over(false)
+    game.over(false, effects.dissolve)
 })
 scene.onHitTile(SpriteKind.Player, 7, function (sprite) {
     jared.vy = -150
@@ -678,9 +813,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.slider2, function (sprite, other
     false
     )
 })
-let slider3: Sprite = null
-let slider2: Sprite = null
-let slider: Sprite = null
+let slider32: Sprite = null
+let slider22: Sprite = null
+let slider4: Sprite = null
+let supertramp: Sprite = null
 let jared: Sprite = null
 jared = sprites.create(img`
 . . . . . . f f f f . . . . . . 
@@ -705,69 +841,69 @@ jared.setPosition(40, 975)
 scene.cameraFollowSprite(jared)
 controller.moveSprite(jared, 100, 0)
 scene.setTileMap(img`
-f b b b b b b b b b b b b f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f b b b b b b b b b b b b f f f f f f f f f f f f f f e e e e e e e e e e e e f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 7 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 7 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 7 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f 7 . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 7 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . 7 . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . 5 . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . f f f . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 7 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . 7 . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . 7 . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . 7 f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . 9 . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 7 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . 7 . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . 7 . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 7 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . 7 2 2 2 2 2 2 f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . 7 . . . . . . f f f f f f f f f f f f 7 . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 7 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . 8 . . . . . . . . . . f f f f f f f f f f f f . . . 7 . . . . . . . . f 
+f 1 1 1 1 1 1 7 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . 7 . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . 7 . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 7 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 7 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 7 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . 9 . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 7 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . 7 . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 7 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . 8 . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 7 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . 7 . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 7 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . 7 . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 7 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . 7 . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 7 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . 7 . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . 5 . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 4 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . 7 . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . 7 . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . 7 . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 7 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 7 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . 7 . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . 7 . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 7 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f 2 2 2 . . . . 2 2 2 2 2 f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . 7 . . . . . f 
+f 1 1 1 1 1 1 1 7 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . 7 . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 7 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 7 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f 2 2 2 2 7 . . . . 2 2 2 f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . 7 . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 7 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 7 1 1 1 f f f f f f f f f f f f f f . . 7 . . . . . . . . . f f f f f f f f f f f f . . . . . 7 . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
 f 1 7 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . . . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
-f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . 7 . . . f f f f f f f f f f f f . . . . . . . . . . . . f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f . . . . . . . . 7 . . . f f f f f f f f f f f f . . . . . . . . 7 . . . f 
 f 2 2 2 2 2 2 2 2 2 2 2 2 f f f f f f f f f f f f f f 2 2 2 2 2 2 2 2 2 2 2 2 f f f f f f f f f f f f 2 2 2 2 2 2 2 2 2 2 2 2 f 
 `)
 scene.setBackgroundImage(img`
@@ -1000,6 +1136,60 @@ scene.setTile(8, img`
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 `, false)
+scene.setTile(4, img`
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+`, false)
+scene.setTile(5, img`
+1 1 1 7 7 7 7 7 7 7 7 7 7 1 1 1 
+1 1 7 7 7 7 7 7 7 7 7 7 7 7 1 1 
+1 f f f 7 7 7 7 7 7 7 7 f f f 1 
+f f f 1 1 1 1 1 1 1 1 1 1 f f f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+`, false)
+scene.setTile(14, img`
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+`, true)
 let trampoline = sprites.create(img`
 1 1 1 7 7 7 7 7 7 7 7 7 7 1 1 1 
 1 1 7 7 7 7 7 7 7 7 7 7 7 7 1 1 
@@ -1022,9 +1212,30 @@ trampoline.setPosition(40, 980)
 for (let value of scene.getTilesByType(7)) {
     value.place(trampoline)
 }
+for (let value of scene.getTilesByType(5)) {
+    supertramp = sprites.create(img`
+1 1 1 5 5 5 5 5 5 5 5 5 5 1 1 1 
+1 1 5 5 5 5 5 5 5 5 5 5 5 5 1 1 
+1 f f f 5 5 5 5 5 5 5 5 f f f 1 
+f f f 1 1 1 1 1 1 1 1 1 1 f f f 
+f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+`, SpriteKind.booster)
+    value.place(supertramp)
+}
 // start of the misc. tramps
-for (let value of scene.getTilesByType(8)) {
-    slider = sprites.create(img`
+for (let value2 of scene.getTilesByType(8)) {
+    slider4 = sprites.create(img`
 1 1 1 7 7 7 7 7 7 7 7 7 7 1 1 1 
 1 1 7 7 7 7 7 7 7 7 7 7 7 7 1 1 
 1 f f f 7 7 7 7 7 7 7 7 f f f 1 
@@ -1042,10 +1253,10 @@ for (let value of scene.getTilesByType(8)) {
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 `, SpriteKind.slider)
-    value.place(slider)
+    value2.place(slider4)
 }
-for (let value2 of scene.getTilesByType(9)) {
-    slider2 = sprites.create(img`
+for (let value22 of scene.getTilesByType(9)) {
+    slider22 = sprites.create(img`
 1 1 1 7 7 7 7 7 7 7 7 7 7 1 1 1 
 1 1 7 7 7 7 7 7 7 7 7 7 7 7 1 1 
 1 f f f 7 7 7 7 7 7 7 7 f f f 1 
@@ -1063,10 +1274,10 @@ for (let value2 of scene.getTilesByType(9)) {
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 `, SpriteKind.slider2)
-    value2.place(slider2)
+    value22.place(slider22)
 }
-for (let value2 of scene.getTilesByType(4)) {
-    slider3 = sprites.create(img`
+for (let value23 of scene.getTilesByType(4)) {
+    slider32 = sprites.create(img`
 1 1 1 7 7 7 7 7 7 7 7 7 7 1 1 1 
 1 1 7 7 7 7 7 7 7 7 7 7 7 7 1 1 
 1 f f f 7 7 7 7 7 7 7 7 f f f 1 
@@ -1084,24 +1295,27 @@ for (let value2 of scene.getTilesByType(4)) {
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 `, SpriteKind.slider3)
-    value2.place(slider3)
+    value23.place(slider32)
 }
-slider.ax = 50
-slider2.ax = 50
-slider3.ax = 50
+slider4.ax = 50
+slider22.ax = 50
+slider32.ax = 50
 forever(function () {
-    if (slider.isHittingTile(CollisionDirection.Left)) {
-        slider.ax = 50
-    } else if (slider.isHittingTile(CollisionDirection.Right)) {
-        slider.ax = -50
+    if (slider4.isHittingTile(CollisionDirection.Left)) {
+        slider4.ax = 50
+    } else if (slider4.isHittingTile(CollisionDirection.Right)) {
+        slider4.ax = -50
     } else {
     	
     }
-    if (slider2.isHittingTile(CollisionDirection.Left)) {
-        slider2.ax = 50
-    } else if (slider2.isHittingTile(CollisionDirection.Right)) {
-        slider2.ax = -50
-    } else {
-    	
+    if (slider22.isHittingTile(CollisionDirection.Left)) {
+        slider22.ax = 50
+    } else if (slider22.isHittingTile(CollisionDirection.Right)) {
+        slider22.ax = -50
+    }
+    if (slider32.isHittingTile(CollisionDirection.Left)) {
+        slider32.ax = 50
+    } else if (slider32.isHittingTile(CollisionDirection.Right)) {
+        slider32.ax = -50
     }
 })
